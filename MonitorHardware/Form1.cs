@@ -23,6 +23,10 @@ namespace MonitorHardware
             float fram = pRam.NextValue();
             metroProgressBarCpu.Value = (int)fcpu;
             metroProgressBarRam.Value = (int)fram;
+            lblCpu.Text = string.Format("{0:0.00}%", fcpu);
+            lblRam.Text = string.Format("{0:0.00}%", fram);
+            chart1.Series["CPU"].Points.AddY(fcpu);
+            chart1.Series["RAM"].Points.AddY(fram);
         }
 
         private void Form1_Load(object sender, EventArgs e)
